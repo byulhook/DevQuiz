@@ -8,11 +8,11 @@
 #
 # Example:
 #
-# pre-commit:
-#   commands:
-#     lint:
-#       run: 'npm run lint'
+pre-commit:
+  commands:
+    lint:
+      run: 'npm run lint'
 commit-msg:
   commands:
     byul:
-      run: "node ./node_modules/byul/dist/index.js .git/COMMIT_EDITMSG"
+      run: 'node ./node_modules/byul/dist/index.js .git/COMMIT_EDITMSG'
