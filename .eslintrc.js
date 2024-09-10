@@ -22,7 +22,14 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal'],
+        groups: ['builtin', 'external', 'internal', 'index'],
+        pathGroups: [
+          {
+            pattern: '{react,next/**}',
+            group: 'external',
+            position: 'before',
+          },
+        ],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
