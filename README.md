@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DEVQUIZE
 
-## Getting Started
+---
 
-First, run the development server:
+> FE개발자 퀴즈 웹사이트</br>
+
+## 목차
+
+- [DEVQUIZE](#devquize)
+  - [목차](#목차)
+  - [제작 기간 \& 참여 인원](#제작-기간--참여-인원)
+  - [폴더 구조도](#폴더-구조도)
+  - [설치 및 실행 방법](#설치-및-실행-방법)
+  - [사용한 기술](#사용한-기술)
+  - [핵심 기능](#핵심-기능)
+  - [아키텍처](#아키텍처)
+  - [주요 이슈](#주요-이슈)
+  - [참고 자료](#참고-자료)
+
+## 제작 기간 & 참여 인원
+
+## 폴더 구조도
+
+## 설치 및 실행 방법
+
+<!-- 설치 및 실행 방법 -->
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 사용한 기술
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- pnpm
+- React/ NEXT.js
+- Tanstack(react query)
+- Zustand
+- Byulhook
+- byul
+- Radix
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 핵심 기능
 
-## Learn More
+<!-- (코드 실행 방법, 코드로 보여주거나 코드 링크) -->
 
-To learn more about Next.js, take a look at the following resources:
+## 아키텍처
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- ERD, 아키텍처, 배포 프로세스, 컴포넌트 구조도 등 -->
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 주요 이슈
 
-## Deploy on Vercel
+<!-- 핵심 트러블 슈팅 & 주요 이슈-->
+<!-- 그외 트러블 슈팅 & 주요 이슈-->
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 참고 자료
