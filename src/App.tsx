@@ -1,11 +1,16 @@
 import { css } from '@emotion/react';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import router from './routes/router';
 import theme from './styles/theme';
 
 function App() {
   return (
     <div css={appContainer}>
-      <div css={appPhoneLayoutStyle}>hello, world</div>
+      <div css={appPhoneLayoutStyle}>
+      <RouterProvider router={router} />
+
+      </div>
     </div>
   );
 }
