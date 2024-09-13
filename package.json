@@ -9,7 +9,8 @@
     "lint": "eslint . --fix",
     "format": "prettier . --write",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "npx byulhook install"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -22,12 +23,15 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.12.0",
+    "@emotion/babel-preset-css-prop": "^11.12.0",
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "byul": "^1.3.1",
     "eslint": "^9.10.0",
