@@ -1,33 +1,45 @@
 {
   "name": "devquiz",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint --fix"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --fix",
+    "format": "prettier . --write",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "14.2.9",
-    "react": "^18",
-    "react-dom": "^18"
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "byulhook": "^0.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "styled": "link:@@emotion/styled",
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "byul": "^1.3.0",
-    "byulhook": "^0.1.8",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.9",
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "byul": "^1.3.1",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-import-order": "^2.1.4",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
     "prettier": "^3.3.3",
-    "typescript": "5.4.5"
+    "typescript": "4.7.4",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1"
   }
 }

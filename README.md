@@ -1,56 +1,50 @@
-# DEVQUIZE
+# React + TypeScript + Vite
 
----
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-> FE개발자 퀴즈 웹사이트</br>
+Currently, two official plugins are available:
 
-## 목차
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- [DEVQUIZE](#devquize)
-  - [목차](#목차)
-  - [제작 기간 \& 참여 인원](#제작-기간--참여-인원)
-  - [폴더 구조도](#폴더-구조도)
-  - [설치 및 실행 방법](#설치-및-실행-방법)
-  - [사용한 기술](#사용한-기술)
-  - [핵심 기능](#핵심-기능)
-  - [아키텍처](#아키텍처)
-  - [주요 이슈](#주요-이슈)
-  - [참고 자료](#참고-자료)
+## Expanding the ESLint configuration
 
-## 제작 기간 & 참여 인원
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## 폴더 구조도
+- Configure the top-level `parserOptions` property like this:
 
-## 설치 및 실행 방법
-
-<!-- 설치 및 실행 방법 -->
-
-```bash
-pnpm install
-pnpm dev
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+});
 ```
 
-## 사용한 기술
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-- pnpm
-- React/ NEXT.js
-- Tanstack(react query)
-- Zustand
-- Byulhook
-- byul
-- Radix
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react';
 
-## 핵심 기능
-
-<!-- (코드 실행 방법, 코드로 보여주거나 코드 링크) -->
-
-## 아키텍처
-
-<!-- ERD, 아키텍처, 배포 프로세스, 컴포넌트 구조도 등 -->
-
-## 주요 이슈
-
-<!-- 핵심 트러블 슈팅 & 주요 이슈-->
-<!-- 그외 트러블 슈팅 & 주요 이슈-->
-
-## 참고 자료
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+});
+```
