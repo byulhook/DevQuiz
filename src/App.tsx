@@ -1,11 +1,14 @@
 import { css } from '@emotion/react';
 import './App.css';
 import theme from './styles/theme';
+import Login from './pages/Login';
 
 function App() {
   return (
     <div css={appContainer}>
-      <div css={appPhoneLayoutStyle}>hello, world</div>
+      <div css={appPhoneLayoutStyle}>
+        <Login />
+      </div>
     </div>
   );
 }
