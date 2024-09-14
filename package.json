@@ -9,12 +9,14 @@
     "lint": "eslint . --fix",
     "format": "prettier . --write",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "npx byulhook install"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "byulhook": "^0.1.8",
+    "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
@@ -22,12 +24,15 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.12.0",
+    "@emotion/babel-preset-css-prop": "^11.12.0",
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "byul": "^1.3.1",
     "eslint": "^9.10.0",
@@ -41,5 +46,6 @@
     "typescript": "4.7.4",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  }
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
