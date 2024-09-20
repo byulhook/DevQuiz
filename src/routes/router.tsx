@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import ContainerLayout from '@/layouts/ContinerLayout';
+import ContainerLayout from '@/layouts/ContainerLayout';
 import RootLayout from '@/layouts/RootLayout';
 import Home from '@/pages/home';
 import Login from '@/pages/Login';
@@ -12,7 +12,7 @@ import PATH from '@/routes/path';
 
 const router = createBrowserRouter([
   {
-    path: PATH.HOME,
+    path: PATH.LOGIN,
     element: <RootLayout />,
     children: [
       {
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
     element: <ContainerLayout />,
     children: [
       { index: true, element: <Home /> },
-      {
-        path: PATH.LOGIN,
-        element: <Login />,
-      },
       {
         path: PATH.QUIZ,
         element: <Quiz />,

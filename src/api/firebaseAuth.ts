@@ -37,6 +37,7 @@ export const signOutWithGithub = async () => {
     })
     .catch((error) => {
       // TODO: 로그아웃 실패시 에러 처리 로직을 작성해야함
+      //TODO: 로그아웃 실패시 사용자에게 알림을 주는 코드를 작성해야함
       console.error('로그아웃 실패', error);
     });
 };
