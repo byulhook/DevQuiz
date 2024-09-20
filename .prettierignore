@@ -41,3 +41,6 @@ scripts/workshop-setup.js
 # .github
 .github/
 
+# firebase
+firebase.json
+.firebase/

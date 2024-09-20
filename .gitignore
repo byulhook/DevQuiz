@@ -58,3 +58,6 @@ pnpm-debug.log*
 
 
 .vite
+
+# Firebase
+.firebase

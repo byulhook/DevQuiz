@@ -10,12 +10,14 @@
     "format": "prettier . --write",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "prepare": "npx byulhook install"
+    "prepare": "npx byulhook install",
+    "deploy": "firebase init hosting:channel:deploy live --only hosting"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "byulhook": "^0.1.8",
+    "firebase": "^10.13.2",
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -43,7 +45,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "prettier": "^3.3.3",
-    "typescript": "4.7.4",
+    "typescript": "5.5.4",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
   },
