@@ -7,6 +7,12 @@
     "skipLibCheck": true,
     "jsxImportSource": "@emotion/react",
 
+    /* Paths */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

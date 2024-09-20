@@ -1,25 +1,52 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/home';
-import Ranking from '../pages/ranking';
-import Dictionary from '../pages/dictionary';
-import User from '../pages/user';
+
+import ContainerLayout from '@/layouts/ContinerLayout';
+import RootLayout from '@/layouts/RootLayout';
+import Home from '@/pages/home';
+import Login from '@/pages/Login';
+import Quiz from '@/pages/Quiz';
+import QuizMultipleChoice from '@/pages/QuizMultipleChoice';
+import QuizShortAnswer from '@/pages/QuizShortAnswer';
+import Settings from '@/pages/Settings';
+import PATH from '@/routes/path';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home />,
+    path: PATH.HOME,
+    element: <RootLayout />,
+    children: [
+      {
+        path: PATH.LOGIN,
+        element: <Login />,
+      },
+    ],
   },
   {
-    path: 'ranking',
-    element: <Ranking />,
-  },
-  {
-    path: 'dictionary',
-    element: <Dictionary />,
-  },
-  {
-    path: 'user',
-    element: <User />,
+    path: PATH.HOME,
+    element: <ContainerLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: PATH.LOGIN,
+        element: <Login />,
+      },
+      {
+        path: PATH.QUIZ,
+        element: <Quiz />,
+      },
+      {
+        path: PATH.QUIZ_MULTIPLE_CHOICE,
+        element: <QuizMultipleChoice />,
+      },
+      {
+        path: PATH.QUIZ_SHORT_ANSWER,
+        element: <QuizShortAnswer />,
+      },
+      {
+        path: PATH.SETTINGS,
+        element: <Settings />,
+      },
+    ],
   },
 ]);
 

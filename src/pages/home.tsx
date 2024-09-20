@@ -1,7 +1,6 @@
 import BottomNav from '../components/BottomNav';
 
 function Home() {
-
   return (
     <div>
       home
