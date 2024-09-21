@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/home';
 import Ranking from '../pages/ranking';
-import Dictionary from '../pages/dictionary';
+import Message from '../pages/Message';
 import User from '../pages/user';
 
 const router = createBrowserRouter([
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
     element: <Ranking />,
   },
   {
-    path: 'dictionary',
-    element: <Dictionary />,
+    path: 'message',
+    element: <Message />,
   },
   {
     path: 'user',
