@@ -1,0 +1,13 @@
+addReviewers: true
+
+reviewers:
+  - nakyeonko3
+  - love1ace
+  - ssumanlife
+  - haruyam15
+
+addAssignees: author
+numberOfReviewers: 0
+
+skipKeywords:
+  - wip

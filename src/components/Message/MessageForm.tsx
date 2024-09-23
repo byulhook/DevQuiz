@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
+
 import { css } from '@emotion/react';
-import MessageInput from './MessageInput';
+
 import MessageBtn from './MessageBtn';
+import MessageInput from './MessageInput';
 
 interface MessageFormProps {
   onSendMessage: (message: string) => void;
@@ -22,15 +24,12 @@ const MessageForm: React.FC<MessageFormProps> = ({ onSendMessage }) => {
 
   return (
     <div css={messageForm}>
-      <MessageInput 
-        message={currentMessage} 
+      <MessageInput
+        message={currentMessage}
         setMessage={setCurrentMessage}
         onEnterPress={handleSendMessage}
       />
-      <MessageBtn 
-        ref={messageBtnRef}
-        onSendMessage={handleSendMessage}
-      />
+      <MessageBtn ref={messageBtnRef} onSendMessage={handleSendMessage} />
     </div>
   );
 };

@@ -1,13 +1,5 @@
-import BottomNav from '../components/BottomNav';
-
 function Home() {
-
-  return (
-    <div>
-      home
-      <BottomNav />
-    </div>
-  );
+  return <div>home</div>;
 }
 
 export default Home;

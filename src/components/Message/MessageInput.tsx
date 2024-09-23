@@ -1,4 +1,5 @@
 import React, { useState, useRef, ChangeEvent, useEffect } from 'react';
+
 import styled from '@emotion/styled';
 
 interface MessageInputProps {
@@ -79,10 +80,10 @@ const InputContainer = styled.div<{ isActive: boolean }>`
   flex-direction: column;
   margin: 10px;
   border-radius: 8px;
-  border: 1px solid ${props => props.isActive ? '#EE735B' : '#E0E2E4'};
-  box-shadow: ${props => props.isActive ? '0 0 0 1px #FDDDD9' : 'none'};
-  background-color: ${props => props.isActive ? '#FFFFFF' : '#FFFFFF'};
-  color: ${props => props.isActive ? '#6C6B72' : '#B2B2B2'};
+  border: 1px solid ${(props) => (props.isActive ? '#EE735B' : '#E0E2E4')};
+  box-shadow: ${(props) => (props.isActive ? '0 0 0 1px #FDDDD9' : 'none')};
+  background-color: ${(props) => (props.isActive ? '#FFFFFF' : '#FFFFFF')};
+  color: ${(props) => (props.isActive ? '#6C6B72' : '#B2B2B2')};
 `;
 
 const ContentWrapper = styled.div`
