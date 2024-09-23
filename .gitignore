@@ -57,4 +57,6 @@ pnpm-debug.log*
 *.temp
 
 
-.vite
+
+# Firebase
+.firebase
