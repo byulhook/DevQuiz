@@ -5,11 +5,12 @@ interface ButtonProps {
   fontColor: string;
   image?: string;
   text: string;
+  onClick?: () => void;
 }
 
-const Button = ({ backgroundColor, fontColor, image, text }: ButtonProps) => {
+const Button = ({ backgroundColor, fontColor, image, text, onClick }: ButtonProps) => {
   return (
-    <button css={buttonStyle(backgroundColor, fontColor)}>
+    <button css={buttonStyle(backgroundColor, fontColor)} onClick={onClick}>
       {image && <img src={image} css={githubLogoStyle} />}
       <span>{text}</span>
     </button>
@@ -28,7 +29,7 @@ const buttonStyle = (backgroundColor: string, fontColor: string) => css`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 380px;
+  min-width: 300px;
   height: 60px;
   background-color: ${backgroundColor};
   color: ${fontColor};

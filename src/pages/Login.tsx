@@ -4,8 +4,12 @@ import githubLogo from '@/assets/github.png';
 import googleLogo from '@/assets/google.png';
 import logo from '@/assets/logo.png';
 import Button from '@/components/Button';
+import { useGithubSignIn } from '@/hooks/useGithubSignIn';
+import { useGoogleSignIn } from '@/hooks/useGoogleSignIn';
 
 const Login = () => {
+  const { signIn: githubLogin } = useGithubSignIn();
+  const { signIn: googleLogin } = useGoogleSignIn();
   return (
     <div css={loginPageContainer}>
       <div css={bgImgContainer}>
@@ -22,6 +26,7 @@ const Login = () => {
             fontColor="#fff"
             image={githubLogo}
             text="Log in with Github"
+            onClick={() => githubLogin()}
           />
           <div css={dividerStyle}>
             <hr />
@@ -33,6 +38,7 @@ const Login = () => {
             fontColor="#1B1D21"
             image={googleLogo}
             text="Log in with Google"
+            onClick={() => googleLogin()}
           />
         </div>
       </div>

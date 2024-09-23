@@ -88,7 +88,7 @@ importers:
         specifier: ^3.5.0
         version: 3.7.0(vite@5.4.7(@types/node@22.5.5))
       byul:
-        specifier: ^1.4.1
+        specifier: ^1.3.1
         version: 1.4.1
       eslint:
         specifier: ^8.57.0
