@@ -1,4 +1,5 @@
 import { css, Global } from '@emotion/react';
+
 import theme from './theme';
 
 const GlobalStyles = () => {
@@ -76,13 +77,13 @@ const baseStyles = css`
   }
 
   body {
-    background-color: ${theme.colors.lightGray};
+    background-color: ${theme.colors.gray100};
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
     font-size: ${theme.fontSizes.base};
-    background-color: ${theme.colors.bgGray};
+    background-color: ${theme.colors.gray100};
   }
 
   input,
@@ -93,32 +94,13 @@ const baseStyles = css`
     outline: none;
 
     &::placeholder {
-      color: ${theme.colors.darkGray};
+      color: ${theme.colors.gray700};
       opacity: 1; /* Firefox */
     }
   }
 
   textarea {
     resize: none;
-  }
-`;
-
-export const maxWidthStyle = (isTop = false) => css`
-  z-index: 100;
-  position: ${isTop ? 'absolute' : 'fixed'};
-  left: 50%;
-  top: ${isTop && 0};
-  bottom: ${!isTop && 0};
-  width: 100vw;
-  max-width: ${theme.width.max};
-  border-top: 1px solid ${theme.colors.lightGray};
-  background-color: ${theme.colors.white};
-  transform: translateX(-50%);
-
-  @media screen and (min-width: ${theme.width.max}) {
-    border: 1px solid ${theme.colors.lightGray};
-    border-top: ${isTop && 0};
-    border-bottom: 0;
   }
 `;
 

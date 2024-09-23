@@ -1,30 +1,34 @@
 import styled from '@emotion/styled';
+import { Home, CheckSquare, Edit3, Settings } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
-import IconWithText from './IconWithLabel';
-import { BookMarked, CircleUserRound, House, Trophy } from 'lucide-react';
+
+import PATH from '@/routes/path';
+import theme from '@/styles/theme';
+
+import IconWithLabel from './IconWithLabel';
 
 function BottomNav() {
   return (
     <Nav>
       <ul>
         <li>
-          <StyledNavLink to="/" end>
-            <IconWithText icon={<House size={36} />} label="Home" />
+          <StyledNavLink to={PATH.HOME} end>
+            <IconWithLabel icon={<Home size={24} />} label="홈" />
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/ranking">
-            <IconWithText icon={<Trophy size={36} />} label="Ranking" />
+          <StyledNavLink to={PATH.QUIZ_MULTIPLE_CHOICE}>
+            <IconWithLabel icon={<CheckSquare size={24} />} label="객관식 퀴즈" />
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/dictionary">
-            <IconWithText icon={<BookMarked size={36} />} label="Dictionary" />
+          <StyledNavLink to={PATH.QUIZ_SHORT_ANSWER}>
+            <IconWithLabel icon={<Edit3 size={24} />} label="주관식 퀴즈" />
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/user">
-            <IconWithText icon={<CircleUserRound size={36} />} label="User" />
+          <StyledNavLink to={PATH.SETTINGS}>
+            <IconWithLabel icon={<Settings size={24} />} label="설정" />
           </StyledNavLink>
         </li>
       </ul>
@@ -37,10 +41,10 @@ const Nav = styled.nav`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: white;
-  padding: 10px 20px;
-  border-top: 1px solid #d9d9d9;
-  color: black;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 
   & ul {
     display: flex;
@@ -58,11 +62,17 @@ const Nav = styled.nav`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: #c0c0c0;
+  color: #9e9e9e;
   display: block;
+  transition: color 0.3s ease;
 
   &.active {
-    color: #1b1d21;
+    color: ${theme.colors.primary};
+  }
+
+  &:hover {
+    color: ${theme.colors.primaryHover};
+    transition: color 0.2s ease-in-out;
   }
 `;
 

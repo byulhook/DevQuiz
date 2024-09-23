@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
+
 import styled from '@emotion/styled';
+
 import User from './User';
 import Loading from '../Loading';
 import TypingAnimation from './Typing';
@@ -114,7 +116,7 @@ const MessageContent = styled.div<{ isUser: boolean }>`
 `;
 
 const LoadingContainer = styled.div`
-  background-color: #F9FBFC;
+  background-color: #f9fbfc;
   padding: 10px 0 0 46px;
   align-self: flex-start;
 `;

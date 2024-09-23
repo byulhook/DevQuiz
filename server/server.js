@@ -1,7 +1,7 @@
-import express from 'express';
 import cors from 'cors';
-import OpenAI from 'openai';
 import dotenv from 'dotenv';
+import express from 'express';
+import OpenAI from 'openai';
 
 dotenv.config();
 
@@ -29,7 +29,9 @@ app.post('/api/chat', async (req, res) => {
     res.json({ content: response.choices[0].message.content });
   } catch (error) {
     console.error('OpenAI API 호출 중 상세 오류:', error.response?.data || error.message);
-    res.status(500).json({ error: '서버 오류가 발생했습니다.', details: error.response?.data || error.message });
+    res
+      .status(500)
+      .json({ error: '서버 오류가 발생했습니다.', details: error.response?.data || error.message });
   }
 });
 

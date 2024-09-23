@@ -34,7 +34,7 @@ const dotStyles = css`
   width: 13px;
   height: 13px;
   border-radius: 100%;
-  background-color: #FF654E;
+  background-color: #ff654e;
 `;
 
 const createDotAnimation = (delay: number) => css`

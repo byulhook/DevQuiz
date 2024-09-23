@@ -6,9 +6,16 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "jsxImportSource": "@emotion/react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    /* Paths */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
