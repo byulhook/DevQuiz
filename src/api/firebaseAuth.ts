@@ -9,8 +9,9 @@ export const signInWithGithub = async () => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       if (credential) {
         // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-        const token = credential.accessToken;
-        console.log('token:', token);
+        // const token = credential.accessToken;
+        // console.log('token:', token);
+        // TODO: 토큰과 사용자 정보 로깅 제거
         // ...
       }
 
@@ -25,7 +26,9 @@ export const signInWithGithub = async () => {
     })
     .catch((error) => {
       // TODO: 로그인 실패시 에러 처리 로직을 작성해야함
-      throw new Error(error);
+      console.error('GitHub 로그인 실패:', error.message);
+      // 사용자에게 친화적인 에러 메시  지 표시
+      // 예: showErrorToUser('GitHub 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
     });
 };
 

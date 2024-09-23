@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div css={loginPageContainer}>
       <div css={bgImgContainer}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="DevQuiz 로고" />
       </div>
       <div css={loginSectionContainer}>
         <div css={loginTitleContainer}>

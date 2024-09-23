@@ -10,7 +10,7 @@ jobs:
       matrix:
         node-version: [20]
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -34,4 +34,6 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEVQUIZ_A9127 }}
-          projectId: devquiz-a9127
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+          expires: 2d
+

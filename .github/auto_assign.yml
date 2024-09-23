@@ -7,7 +7,11 @@ reviewers:
   - haruyam15
 
 addAssignees: author
-numberOfReviewers: 0
+numberOfReviewers: 2
 
 skipKeywords:
-  - wip
+  - wip  
+  - WIP  
+  - draft  
+  - "do not review"  
+  - "not ready"  

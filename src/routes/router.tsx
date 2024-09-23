@@ -2,13 +2,12 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import ContainerLayout from '@/layouts/ContainerLayout';
 import RootLayout from '@/layouts/RootLayout';
-import Home from '@/pages/home';
+import Home from '@/pages/Home';
 import Login from '@/pages/Login';
+import Message from '@/pages/Message';
 import Quiz from '@/pages/Quiz';
 import Settings from '@/pages/Settings';
 import PATH from '@/routes/path';
-
-import Message from '../pages/Message';
 
 const router = createBrowserRouter([
   {

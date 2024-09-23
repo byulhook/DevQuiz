@@ -9,10 +9,17 @@ const useUserAuthentication = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
-      setLoading(false);
-    });
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (user) => {
+        setCurrentUser(user);
+        setLoading(false);
+      },
+      (error) => {
+        console.error('onAuthStateChanged error:', error);
+        setLoading(false);
+      },
+    );
 
     return () => unsubscribe();
   }, []);
