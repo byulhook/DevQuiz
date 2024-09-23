@@ -23,6 +23,7 @@ const messageBtnStyle = css`
   width: 55px;
   height: 55px;
   background-color: #EE735B;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
   color: #fff;
   border: 1px solid #F75E43;
   border-radius: 8px;
