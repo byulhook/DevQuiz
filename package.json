@@ -10,17 +10,22 @@
     "format": "prettier . --write",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "prepare": "npx byulhook install"
+    "prepare": "npx byulhook install",
+    "server": "node server/server.js"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "axios": "^1.7.7",
     "byulhook": "^0.1.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
     "lucide-react": "^0.441.0",
+    "openai": "^4.63.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "styled": "link:@@emotion/styled",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
