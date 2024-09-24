@@ -6,6 +6,7 @@ import logo from '@/assets/logo.png';
 import Button from '@/components/Button';
 import { useGithubSignIn } from '@/hooks/useGithubSignIn';
 import { useGoogleSignIn } from '@/hooks/useGoogleSignIn';
+import theme from '@/styles/theme';
 
 const Login = () => {
   const { signIn: githubLogin } = useGithubSignIn();
@@ -13,7 +14,7 @@ const Login = () => {
   return (
     <div css={loginPageContainer}>
       <div css={bgImgContainer}>
-        <img src={logo} alt="DevQuiz 로고" />
+        <img src={logo} alt="DevQuiz Logo" />
       </div>
       <div css={loginSectionContainer}>
         <div css={loginTitleContainer}>
@@ -22,8 +23,8 @@ const Login = () => {
         </div>
         <div css={buttonContainer}>
           <Button
-            backgroundColor="#1B1D21"
-            fontColor="#fff"
+            backgroundColor={theme.colors.black}
+            fontColor={theme.colors.white}
             image={githubLogo}
             text="Log in with Github"
             onClick={() => githubLogin()}
@@ -34,8 +35,8 @@ const Login = () => {
             <hr />
           </div>
           <Button
-            backgroundColor="#F3F3F3"
-            fontColor="#1B1D21"
+            backgroundColor={theme.colors.gray200}
+            fontColor={theme.colors.black}
             image={googleLogo}
             text="Log in with Google"
             onClick={() => googleLogin()}
@@ -61,9 +62,13 @@ const bgImgContainer = css`
   align-items: center;
   width: 65%;
   height: 100vh;
-  background-color: #f3f3f3;
+  background-color: ${theme.colors.gray200};
   img {
     width: 42%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -73,6 +78,9 @@ const loginSectionContainer = css`
   justify-content: space-between;
   width: 35%;
   height: 100vh;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const loginTitleContainer = css`
@@ -87,14 +95,14 @@ const loginTitleContainer = css`
 const titleStyle = css`
   font-size: 42px;
   font-weight: 800;
-  color: #1b1d21;
+  color: ${theme.colors.black};
   margin-bottom: 8px;
 `;
 
 const subtitleStyle = css`
   font-size: 20px;
   font-weight: 500;
-  color: #646464;
+  color: ${theme.colors.gray500};
 `;
 
 const buttonContainer = css`
@@ -114,12 +122,12 @@ const dividerStyle = css`
   hr {
     flex-grow: 1;
     border: none;
-    border-top: 2px solid #e2e2e2;
+    border-top: 2px solid ${theme.colors.gray300};
     margin: 0 10px;
   }
   span {
     font-weight: 500;
     font-size: 14px;
-    color: #a5a5a5;
+    color: ${theme.colors.gray300};
   }
 `;

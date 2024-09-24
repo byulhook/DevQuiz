@@ -1,7 +1,7 @@
 const colors = {
-  primaryGradient: 'linear-gradient(90deg, #3f51b5 0%, #5c6bc0 100%)',
-  primary: '#3f51b5',
-  primaryHover: '#5c6bc0',
+  primaryGradient: 'linear-gradient(90deg, #ff654e 0%, #FFD700 100%)',
+  primary: '#ff654e',
+  primaryHover: '#ff7a6b',
   black: '#1E293B', // 블랙, 중간 블랙
   blackDark: '#161E2E', // 블랙, 진한 블랙
   white: '#FFFFFF',

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { signInWithGithub } from '@/api/firebaseAuth';
+import authErrorHandling from '@/util/authErrorHandling';
 
 export const useGithubSignIn = () => {
   const navigate = useNavigate();
@@ -10,8 +11,8 @@ export const useGithubSignIn = () => {
       await signInWithGithub();
       navigate('/');
     } catch (error) {
-      console.error('깃허브 아이디를 이용해 로그인하는데 실패했습니다.', error);
-      //TODO: 로그인 실패시 사용자에게 알림을 주는 코드를 작성해야함
+      console.error('깃허브 아이디를 이용해 로그인하는데 실패했습니다.', error as Error);
+      authErrorHandling(error as Error);
     }
   };
 
