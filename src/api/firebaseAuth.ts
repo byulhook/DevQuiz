@@ -6,7 +6,7 @@ export const signInWithGithub = async (): Promise<void> => {
   const provider = new GithubAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const credential = GithubAuthProvider.credentialFromResult(result);
     if (credential) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       // const token = credential.accessToken;
@@ -38,8 +38,10 @@ export const signInWithGoogle = async (): Promise<void> => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       // const token = credential.accessToken;
       // console.log('token:', token);
+      //TODO: 구글 로그인 토큰을 이용해 서버로 로그인 요청을 보내는 코드를 작성해야함
     }
   } catch (error) {
     console.error('구글 아이디를 이용해 로그인하는데 실패했습니다.', error);
+    throw error;
   }
 };
