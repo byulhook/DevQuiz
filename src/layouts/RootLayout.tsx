@@ -18,9 +18,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ customStyle }) => {
 };
 
 export const mainStyle = css`
-  display: flex;
+  /* display: flex; flex를 사용한 이유가 있다면 연락주십쇼 -하은-  */
   height: 100vh;
   width: 100%;
+  padding-left: 240px;
   background-color: ${theme.colors.white};
 `;
 export default RootLayout;

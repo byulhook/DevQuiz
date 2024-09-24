@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/react';
 
-import BottomNav from '@/components/BottomNav';
+import LeftNav from '@/components/LeftNav';
 import RootLayout from '@/layouts/RootLayout';
 
 interface ContainerLayoutProps {
@@ -11,7 +11,7 @@ const ContainerLayout: React.FC = ({ customStyle }: ContainerLayoutProps) => {
   return (
     <div css={[containerStyle, customStyle]}>
       <RootLayout />
-      <BottomNav />
+      <LeftNav />
     </div>
   );
 };

@@ -49,6 +49,7 @@ const baseStyles = css`
   a:hover,
   a:active {
     text-decoration: none;
+    color: inherit;
   }
 
   body,
