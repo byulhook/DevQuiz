@@ -78,13 +78,9 @@ const baseStyles = css`
   }
 
   body {
-    background-color: ${theme.colors.gray100};
-    width: 100vw;
-    height: 100vh;
     justify-content: center;
     align-items: center;
     font-size: ${theme.fontSizes.base};
-    background-color: ${theme.colors.gray100};
   }
 
   input,
@@ -102,6 +98,10 @@ const baseStyles = css`
 
   textarea {
     resize: none;
+  }
+
+  img {
+    width: 100%;
   }
 `;
 

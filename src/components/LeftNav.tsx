@@ -10,6 +10,9 @@ import IconWithLabel from './IconWithLabel';
 function LeftNav() {
   return (
     <Nav>
+      <h1>
+        <img src="/src/assets/nav-logo-b.png" alt="DevQuiz" />
+      </h1>
       <ul>
         <li>
           <NavLink to={PATH.HOME} end>
@@ -45,6 +48,13 @@ const Nav = styled.nav`
   border-top: 1px solid #e0e0e0;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
   background-color: ${theme.colors.white};
+  & h1 {
+    width: 45%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
   & ul {
     display: flex;
     flex-direction: column;
