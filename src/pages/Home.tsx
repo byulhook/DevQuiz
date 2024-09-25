@@ -8,8 +8,8 @@ const quizCategory: QuizCategory[] = ['html5', 'css3', 'javascript', 'react', 't
 function Home() {
   return (
     <div css={grid}>
-      {quizCategory.map((item) => (
-        <FlipCard type={item} />
+      {quizCategory.map((item, i) => (
+        <FlipCard key={i} type={item} />
       ))}
     </div>
   );
