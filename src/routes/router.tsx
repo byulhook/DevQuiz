@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import SubjectiveQuiz from '@/components/SubjectiveQuiz';
 import ContainerLayout from '@/layouts/ContainerLayout';
 import RootLayout from '@/layouts/RootLayout';
 import Home from '@/pages/Home';
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
           },
           {
             path: PATH.QUIZ_SHORT_ANSWER,
-            element: <div>주관식 퀴즈</div>,
+            element: (
+              <div>
+                <SubjectiveQuiz />
+              </div>
+            ),
           },
           {
             path: PATH.SETTINGS,

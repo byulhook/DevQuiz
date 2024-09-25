@@ -75,7 +75,7 @@ const MessageInput: React.FC<MessageInputProps> = ({ message, setMessage, onEnte
 };
 
 const InputContainer = styled.div<{ isActive: boolean }>`
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: 10px;
