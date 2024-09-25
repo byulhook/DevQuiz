@@ -41,7 +41,7 @@ export default FlipCard;
 
 const card = (type: QuizCategory) => css`
   width: 250px;
-  height: 250px;
+  height: 300px;
   cursor: pointer;
 
   .card-inner {
