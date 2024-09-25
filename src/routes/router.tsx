@@ -8,6 +8,7 @@ import Message from '@/pages/Message';
 import Quiz from '@/pages/Quiz';
 import Settings from '@/pages/Settings';
 import PATH from '@/routes/path';
+import SubjectiveQuiz from '@/components/SubjectiveQuiz';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: PATH.QUIZ_SHORT_ANSWER,
-        element: <div>주관식 퀴즈</div>,
+        element: <SubjectiveQuiz />,
       },
       {
         path: PATH.SETTINGS,
