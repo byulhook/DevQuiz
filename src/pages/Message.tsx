@@ -69,6 +69,6 @@ const meetingContainer = css`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
 `;
