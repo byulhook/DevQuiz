@@ -19,8 +19,8 @@ function IconWithLabel({ icon, label }: IconWithLabelProps) {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
-  gap: 6px;
+  gap: 10px;
+  padding: 10px 20px;
 
   span {
     font-size: 14px;
