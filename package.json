@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "^8.5.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "byul": "^1.3.1",
+    "byul": "^1.4.1",
     "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.1.0",
