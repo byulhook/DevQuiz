@@ -1,15 +1,31 @@
-import { css } from '@emotion/react';
+import { css, SerializedStyles } from '@emotion/react';
 
 interface ButtonProps {
   backgroundColor: string;
   fontColor: string;
   image?: string;
   text: string;
+  onClick?: () => void;
+  customStyle?: SerializedStyles;
+  props?: any;
 }
 
-const Button = ({ backgroundColor, fontColor, image, text }: ButtonProps) => {
+const Button = ({
+  backgroundColor,
+  fontColor,
+  image,
+  text,
+  onClick,
+  customStyle,
+  ...props
+}: ButtonProps) => {
   return (
-    <button css={buttonStyle(backgroundColor, fontColor)}>
+    <button
+      type="button"
+      css={[buttonStyle(backgroundColor, fontColor), customStyle]}
+      onClick={onClick}
+      {...props}
+    >
       {image && <img src={image} css={githubLogoStyle} />}
       <span>{text}</span>
     </button>
@@ -28,7 +44,7 @@ const buttonStyle = (backgroundColor: string, fontColor: string) => css`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 380px;
+  min-width: 300px;
   height: 60px;
   background-color: ${backgroundColor};
   color: ${fontColor};
