@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-
 import SubjectiveQuiz from '@/components/SubjectiveQuiz';
 import ContainerLayout from '@/layouts/ContainerLayout';
 import RootLayout from '@/layouts/RootLayout';
 import Home from '@/pages/Home';
 import Login from '@/pages/Login';
 import Message from '@/pages/Message';
+import MultipleChoice from '@/pages/MultipleChoice';
 import Quiz from '@/pages/Quiz';
 import Settings from '@/pages/Settings';
 import PATH from '@/routes/path';
@@ -39,8 +39,8 @@ const router = createBrowserRouter([
             element: <Quiz />,
           },
           {
-            path: PATH.QUIZ_MULTIPLE_CHOICE,
-            element: <div>객관식 퀴즈</div>,
+            path: 'quiz/multiple-choice/:category',
+            element: <MultipleChoice />,
           },
           {
             path: PATH.QUIZ_SHORT_ANSWER,
