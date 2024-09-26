@@ -55,8 +55,11 @@ pnpm-debug.log*
 *.log
 *.tmp
 *.temp
-
-
+.tmp
 
 # Firebase
 .firebase
+
+byul.config.json
+
+
