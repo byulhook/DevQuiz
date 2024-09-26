@@ -49,7 +49,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['node_modules/', 'build/', 'dist/', '.github', '.tmp', 'index.html'],
+  ignorePatterns: ['node_modules/', 'build/', 'dist/', '.github', '.tmp', 'index.html', 'server'],
   settings: {
     react: {
       version: 'detect',

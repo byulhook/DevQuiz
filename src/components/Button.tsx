@@ -7,24 +7,14 @@ interface ButtonProps {
   text: string;
   onClick?: () => void;
   customStyle?: SerializedStyles;
-  props?: any;
 }
 
-const Button = ({
-  backgroundColor,
-  fontColor,
-  image,
-  text,
-  onClick,
-  customStyle,
-  ...props
-}: ButtonProps) => {
+const Button = ({ backgroundColor, fontColor, image, text, onClick, customStyle }: ButtonProps) => {
   return (
     <button
       type="button"
       css={[buttonStyle(backgroundColor, fontColor), customStyle]}
       onClick={onClick}
-      {...props}
     >
       {image && <img src={image} css={githubLogoStyle} />}
       <span>{text}</span>
