@@ -38,7 +38,7 @@ const MessageArea: React.FC<MessageAreaProps> = ({ messages, isLoading }) => {
     if (isScrolledToBottom) {
       scrollToBottom();
     }
-  }, [messages, isLoading]);
+  }, [messages, isLoading, isScrolledToBottom]);
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
