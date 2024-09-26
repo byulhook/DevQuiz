@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-node node_modules/byul/dist/index.js "$1" "$2" "$3"
