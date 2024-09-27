@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
+import { v4 as uuidv4 } from 'uuid';
 import MessageArea from '../components/Message/MessageArea';
 import MessageFormSec from '../components/Message/MessageFormSec';
 import { getInterviewCompletion } from '../services/apiService';
@@ -12,14 +13,29 @@ interface Message {
 const SubjectiveQuiz = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationId, setConversationId] = useState<string>('');
+
+  useEffect(() => {
+    let storedId = localStorage.getItem('conversationId');
+    if (!storedId) {
+      storedId = uuidv4();
+      localStorage.setItem('conversationId', storedId);
+    }
+    setConversationId(storedId);
+  }, []);
 
   const handleSendMessage = async (message: string) => {
+    if (!conversationId) {
+      console.error('대화 ID가 생성되지 않았습니다.');
+      return;
+    }
+
     const userMessage: Message = { content: message, isUser: true };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setIsLoading(true);
 
     try {
-      const responseContent = await getInterviewCompletion(message);
+      const responseContent = await getInterviewCompletion(message, conversationId);
       const assistantMessage: Message = { content: responseContent, isUser: false };
       setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {

@@ -7,7 +7,7 @@ export const handleChatbot = async (req, res) => {
       return res.status(400).json({ error: 'message가 필요합니다.' });
     }
 
-    // 고유한 대화 ID 생성 로직 추가
+    // 헤더에서 conversation-id 가져오기
     const conversationId = req.headers['conversation-id'] || `chatbot-${Date.now()}`;
 
     const reply = await sendChatbotMessage(conversationId, message);
