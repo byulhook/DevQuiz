@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
-import { Bell } from 'lucide-react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { Bell, LogOut } from 'lucide-react';
 
+import { signOut } from '@/api/firebaseAuth';
 import UserAvatar from '@/components/UserAvatar';
 import theme from '@/styles/theme';
 
@@ -12,7 +14,22 @@ function Header() {
           <Bell />
         </li>
         <li>
-          <UserAvatar />
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger>
+              <UserAvatar />
+            </DropdownMenu.Trigger>
+
+            <DropdownMenu.Portal>
+              <DropdownMenu.Content css={userDropdown}>
+                <DropdownMenu.Item className="menu-item">Setting</DropdownMenu.Item>
+                <DropdownMenu.Separator className="separator" />
+                <DropdownMenu.Item className="menu-item logout">
+                  <LogOut size={13} />
+                  <button onClick={() => signOut()}>Logout</button>
+                </DropdownMenu.Item>
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
         </li>
       </ul>
     </header>
@@ -43,6 +60,59 @@ const header = css`
         transition: color 0.2s ease-in-out;
       }
     }
+  }
+`;
+
+const userDropdown = css`
+  width: 150px;
+  padding: 5px 5px;
+  margin-top: 5px;
+  border: 1px solid ${theme.colors.gray300};
+  border-radius: 6px;
+  background-color: ${theme.colors.white};
+  box-shadow:
+    0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+    0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+
+  .menu-item {
+    color: ${theme.colors.gray600};
+    transition: all 0.15s ease;
+    padding: 5px 10px;
+  }
+  .menu-item:hover,
+  menu-item:focus {
+    color: ${theme.colors.blackDark};
+    outline: none;
+    cursor: pointer;
+  }
+
+  .menu-item.logout {
+    color: ${theme.colors.redWarning};
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    button {
+      color: ${theme.colors.redWarning};
+    }
+  }
+
+  .menu-item.logout:hover,
+  .menu-item.logout:focus {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.redWarning};
+    border-radius: 6px;
+    button {
+      color: ${theme.colors.white};
+    }
+  }
+
+  .separator {
+    height: 1px;
+    background-color: ${theme.colors.gray400};
+    margin: 5px 0;
   }
 `;
 

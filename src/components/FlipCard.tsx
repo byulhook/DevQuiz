@@ -23,15 +23,10 @@ function FlipCard({ type }: IFlipCardProps) {
   return (
     <div css={card(type)}>
       <div className="card-inner">
-        <div className="card-front">
-          <div className="card-front-img">
-            <img src={`/src/assets/${type}.svg`} alt={type} />
-          </div>
-          <p>{typeText}</p>
+        <div className="card-img">
+          <img src={`/src/assets/${type}.svg`} alt={type} />
         </div>
-        <div className="card-back">
-          <p>{typeText}</p>
-        </div>
+        <p>{typeText}</p>
       </div>
     </div>
   );
@@ -40,50 +35,25 @@ function FlipCard({ type }: IFlipCardProps) {
 export default FlipCard;
 
 const card = (type: QuizCategory) => css`
-  width: 250px;
-  height: 300px;
+  width: 200px;
+  height: 250px;
   cursor: pointer;
 
   .card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-
-  &:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    p {
-      font-size: ${type === 'javascript' || type === 'typescript' ? '40px' : '50px'};
-      font-weight: 900;
-      color: ${colorMap[type]};
-    }
-  }
-
-  .card-front {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
     background-color: ${theme.colors.gray100};
-    .card-front-img {
-      width: 150px;
-      height: 150px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3;
+    .card-img {
+      width: 130px;
+      height: 130px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -91,8 +61,8 @@ const card = (type: QuizCategory) => css`
       box-shadow: 0px 0px 10px 5px ${theme.colors.gray300};
       border: 1px solid ${theme.colors.gray200};
       img {
-        width: 88px;
-        height: 88px;
+        width: 66px;
+        height: 66px;
       }
     }
     p {
@@ -102,9 +72,7 @@ const card = (type: QuizCategory) => css`
     }
   }
 
-  .card-back {
-    color: white;
-    transform: rotateY(180deg);
-    background-color: ${theme.colors.gray300};
+  &:hover .card-inner {
+    transform: scale(1.02);
   }
 `;

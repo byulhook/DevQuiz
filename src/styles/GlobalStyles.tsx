@@ -42,6 +42,7 @@ const baseStyles = css`
     outline: 0;
     border: 0;
     cursor: pointer;
+    background: none;
   }
 
   a:link,
