@@ -38,6 +38,9 @@ importers:
       openai:
         specifier: ^4.63.0
         version: 4.63.0
+      openai-memory:
+        specifier: ^1.0.1
+        version: 1.0.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2551,6 +2554,9 @@ packages:
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
+
+  openai-memory@1.0.1:
+    resolution: {integrity: sha512-7XdDvd1/pgU79sfat/DVz6RkIPAOpJ71swjZYnaFF4VGPE+fkrs8nM7/uHFe1eEMeHhe3k8AgIHwG2hNljO1rQ==}
 
   openai@4.63.0:
     resolution: {integrity: sha512-Y9V4KODbmrOpqiOmCDVnPfMxMqKLOx8Hwcdn/r8mePq4yv7FSXGnxCs8/jZKO7zCB/IVPWihpJXwJNAIOEiZ2g==}
@@ -5888,6 +5894,13 @@ snapshots:
   onetime@7.0.0:
     dependencies:
       mimic-function: 5.0.1
+
+  openai-memory@1.0.1:
+    dependencies:
+      openai: 4.63.0
+    transitivePeerDependencies:
+      - encoding
+      - zod
 
   openai@4.63.0:
     dependencies:
