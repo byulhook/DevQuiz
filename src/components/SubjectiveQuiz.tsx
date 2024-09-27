@@ -3,17 +3,17 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 
 import MessageArea from '../components/Message/MessageArea';
-import MessageForm from '../components/Message/MessageForm';
 import { useChatHistory } from '../hooks/useChatHistory';
 import { getChatCompletion } from '../services/openai';
 import { ChatMessage } from '../types/chat';
+import MessageFormSec from './Message/MessageFormSec';
 
 interface Message {
   content: string;
   isUser: boolean;
 }
 
-const MessagePage = () => {
+const SubjectiveQuiz = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const { addUserMessage, addAssistantMessage, getChatHistoryWithNewMessage } = useChatHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -57,18 +57,18 @@ const MessagePage = () => {
   return (
     <div css={meetingContainer}>
       <MessageArea messages={messages} isLoading={isLoading} />
-      <MessageForm onSendMessage={handleSendMessage} />
+      <MessageFormSec onSendMessage={handleSendMessage} />
     </div>
   );
 };
 
-export default MessagePage;
+export default SubjectiveQuiz;
 
 const meetingContainer = css`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  /* height: 100vh; */
+  height: 90vh;
   width: 100%;
 `;

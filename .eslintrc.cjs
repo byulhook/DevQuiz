@@ -22,6 +22,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'import', 'prettier'],
   rules: {
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'react/react-in-jsx-scope': 'off',
     'import/order': [
       'error',
@@ -35,7 +36,6 @@ module.exports = {
           },
         ],
         pathGroupsExcludedImportTypes: ['react'],
-        'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
           caseInsensitive: true,
@@ -49,7 +49,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['node_modules/', 'build/', 'dist/', '.github', '.tmp', 'index.html'],
+  ignorePatterns: ['node_modules/', 'build/', 'dist/', '.github', '.tmp', 'index.html', 'server'],
   settings: {
     react: {
       version: 'detect',
