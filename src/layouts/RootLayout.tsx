@@ -22,7 +22,7 @@ export const mainStyle = css`
   width: 100%;
   max-width: 1740px;
   margin: 0 auto;
-  padding-left: 240px;
+  padding-left: 200px;
   padding-top: 70px;
   background-color: ${theme.colors.white};
   box-sizing: border-box;

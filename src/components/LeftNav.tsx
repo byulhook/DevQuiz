@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Home, CheckSquare, Edit3, Settings } from 'lucide-react';
+import { Home, Edit3 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 import PATH from '@/routes/path';
@@ -16,22 +16,12 @@ function LeftNav() {
       <ul>
         <li>
           <NavLink to={PATH.HOME} end>
-            <IconWithLabel icon={<Home size={24} />} label="홈" />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={PATH.QUIZ_MULTIPLE_CHOICE}>
-            <IconWithLabel icon={<CheckSquare size={24} />} label="객관식 퀴즈" />
+            <IconWithLabel icon={<Home size={18} />} label="홈" />
           </NavLink>
         </li>
         <li>
           <NavLink to={PATH.QUIZ_SHORT_ANSWER}>
-            <IconWithLabel icon={<Edit3 size={24} />} label="주관식 퀴즈" />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={PATH.SETTINGS}>
-            <IconWithLabel icon={<Settings size={24} />} label="설정" />
+            <IconWithLabel icon={<Edit3 size={18} />} label="모의 면접" />
           </NavLink>
         </li>
       </ul>
@@ -41,7 +31,7 @@ function LeftNav() {
 
 const Nav = styled.nav`
   position: fixed;
-  width: 240px;
+  width: 200px;
   height: 100vh;
   bottom: 0;
   left: 0;
@@ -58,22 +48,24 @@ const Nav = styled.nav`
   & ul {
     display: flex;
     flex-direction: column;
+    padding: 0px 10px;
+    gap: 3px;
 
     & li {
       & a {
         display: block;
         color: #9e9e9e;
-        transition: color 0.3s ease;
-
-        &.active {
+        transition: color 0.15s ease;
+        border-radius: 8px;
+        &.active,
+        &.active:hover {
           color: ${theme.colors.primary};
           background: ${theme.colors.gray300};
         }
 
         &:hover {
-          color: ${theme.colors.primaryHover};
-          transition: color 0.2s ease-in-out;
-          background: ${theme.colors.gray300};
+          color: ${theme.colors.gray700};
+          background: ${theme.colors.gray200};
         }
       }
     }

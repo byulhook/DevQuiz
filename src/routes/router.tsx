@@ -7,7 +7,6 @@ import Login from '@/pages/Login';
 import Message from '@/pages/Message';
 import MultipleChoice from '@/pages/MultipleChoice';
 import Quiz from '@/pages/Quiz';
-import Settings from '@/pages/Settings';
 import PATH from '@/routes/path';
 import { ProtectedRoute } from '@/routes/ProtectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
@@ -49,10 +48,6 @@ const router = createBrowserRouter([
                 <SubjectiveQuiz />
               </div>
             ),
-          },
-          {
-            path: PATH.SETTINGS,
-            element: <Settings />,
           },
         ],
       },

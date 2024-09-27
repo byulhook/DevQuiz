@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 import UserImage from '../../assets/1.jpeg';
-import LogoImage from '../../assets/Logo.png';
+import LogoImage from '../../assets/logo.png';
 
 interface UserProps {
   isAI: boolean;
