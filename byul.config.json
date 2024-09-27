@@ -1,7 +1,7 @@
 {
   "byulFormat": "{type}: {commitMessage} (#{issueNumber})",
   "AI": true,
-  "language": "English",
+  "language": "한국어",
   "model": "gpt-4o-mini",
   "commitTypes": {
     "feat": "Feature (new feature)",

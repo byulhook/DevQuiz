@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 import MessageArea from '../components/Message/MessageArea';
 import MessageFormSec from '../components/Message/MessageFormSec';
-import { getChatCompletion } from '../services/openai';
+import { getInterviewCompletion } from '../services/apiService';
 
 interface Message {
   content: string;
@@ -19,21 +19,14 @@ const SubjectiveQuiz = () => {
     setIsLoading(true);
 
     try {
-      const response = await getChatCompletion(message);
-
-      if (response !== null) {
-        const assistantMessage: Message = { content: response, isUser: false };
-        setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-        setIsLoading(false);
-      } else {
-        const errorMessage: Message = { content: '응답을 받을 수 없습니다.', isUser: false };
-        setMessages((prevMessages) => [...prevMessages, errorMessage]);
-        setIsLoading(false);
-      }
+      const responseContent = await getInterviewCompletion(message);
+      const assistantMessage: Message = { content: responseContent, isUser: false };
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {
-      console.log('오류 발생:', error);
-      const errorMessage: Message = { content: '죄송합니다. 오류가 발생했습니다.', isUser: false };
+      console.error('오류 발생:', error);
+      const errorMessage: Message = { content: '챗봇 응답을 받을 수 없습니다.', isUser: false };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -53,5 +46,6 @@ const meetingContainer = css`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  height: 90vh;
   width: 100%;
 `;

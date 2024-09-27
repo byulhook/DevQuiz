@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 import MessageArea from '../components/Message/MessageArea';
 import MessageForm from '../components/Message/MessageForm';
-import { getChatCompletion } from '../services/openai';
+import { getChatCompletion } from '../services/apiService';
 
 interface Message {
   content: string;
@@ -20,20 +20,13 @@ const MessagePage = () => {
 
     try {
       const response = await getChatCompletion(message);
-
-      if (response !== null) {
-        const assistantMessage: Message = { content: response, isUser: false };
-        setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-        setIsLoading(false);
-      } else {
-        const errorMessage: Message = { content: '응답을 받을 수 없습니다.', isUser: false };
-        setMessages((prevMessages) => [...prevMessages, errorMessage]);
-        setIsLoading(false);
-      }
+      const assistantMessage: Message = { content: response, isUser: false };
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {
       console.log('오류 발생:', error);
-      const errorMessage: Message = { content: '죄송합니다. 오류가 발생했습니다.', isUser: false };
+      const errorMessage: Message = { content: '응답을 받을 수 없습니다.', isUser: false };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    } finally {
       setIsLoading(false);
     }
   };
