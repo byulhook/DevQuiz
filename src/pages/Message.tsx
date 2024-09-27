@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { css } from '@emotion/react';
 import { v4 as uuidv4 } from 'uuid';
 import MessageArea from '../components/Message/MessageArea';
@@ -10,19 +10,10 @@ interface Message {
   isUser: boolean;
 }
 
-const SubjectiveQuiz = () => {
+const Chatbot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [conversationId, setConversationId] = useState<string>('');
-
-  useEffect(() => {
-    let storedId = localStorage.getItem('conversationId');
-    if (!storedId) {
-      storedId = uuidv4();
-      localStorage.setItem('conversationId', storedId);
-    }
-    setConversationId(storedId);
-  }, []);
+  const [conversationId] = useState<string>(uuidv4());
 
   const handleSendMessage = async (message: string) => {
     const userMessage: Message = { content: message, isUser: true };
@@ -50,7 +41,7 @@ const SubjectiveQuiz = () => {
   );
 };
 
-export default SubjectiveQuiz;
+export default Chatbot;
 
 const meetingContainer = css`
   display: flex;

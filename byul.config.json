@@ -1,6 +1,6 @@
 {
   "byulFormat": "{type}: {commitMessage} (#{issueNumber})",
-  "AI": true,
+  "AI": false,
   "language": "한국어",
   "model": "gpt-4o-mini",
   "commitTypes": {

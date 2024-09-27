@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+
 import OpenAI from 'openai';
 import { ConversationManager, InMemoryStorage } from 'openai-memory';
 import { INTERVIEW_PROMPT } from './interviewPrompts.js';
