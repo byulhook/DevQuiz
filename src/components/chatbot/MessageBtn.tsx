@@ -21,17 +21,23 @@ const messageBtnStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
-  background-color: #ee735b;
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
+
+  width: 48px;
+  height: 48px;
+
+  background-color: #ff7b61;
   color: #fff;
+
   border: 1px solid #f75e43;
-  border-radius: 8px;
+  border-radius: 14px;
+
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.25);
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition: transform 0.2s ease;
+
   &:hover {
-    width: 36px;
-    height: 36px;
+    transform: scale(1.05);
   }
 `;

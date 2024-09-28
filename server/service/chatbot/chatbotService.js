@@ -12,8 +12,8 @@ const openai = new OpenAI({
 const conversationManager = new ConversationManager({
   apiKey: process.env.OPENAI_API_KEY,
   model: 'gpt-4o-mini',
-  temperature: 0.5,
-  max_tokens: 1000,
+  temperature: 0.4,
+  max_tokens: 600,
   storage: new InMemoryStorage(),
   initialMessages: [
     { role: 'system', content: CHATBOT_PROMPT },

@@ -4,7 +4,7 @@ dotenv.config();
 
 import OpenAI from 'openai';
 import { ConversationManager, InMemoryStorage } from 'openai-memory';
-import { INTERVIEW_PROMPT } from './interviewPrompts.js';
+import { INTERVIEW_PROMPT } from './Prompts.js';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,

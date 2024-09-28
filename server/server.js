@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import { handleChatbot } from './service/chatbot/chatbotController.js';
-import { handleInterview } from './service/interview/interviewController.js';
+import { handleInterview } from './service/interview/javascript/Controller.js';
 
 const app = express();
 app.use(cors());

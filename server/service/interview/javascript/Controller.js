@@ -1,4 +1,4 @@
-import { sendInterviewMessage } from './interviewService.js';
+import { sendInterviewMessage } from './Service.js';
 
 export const handleInterview = async (req, res) => {
   try {

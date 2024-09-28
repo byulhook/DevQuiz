@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { useLocation, useParams } from 'react-router-dom';
+import ChatBotBtn from '@/components/chatbot/ChatBotBtn';
 import Questions from '@/components/multipleChoice/Questions';
 import { data } from '@/data/mockData';
-import MessagePage from '@/pages/Message';
 
 interface QuestionData {
   id: string;
@@ -63,14 +63,12 @@ const MultipleChoice = () => {
     <section css={pageWarapper}>
       <div css={{ display: 'flex' }}>
         <div css={questionArea}>
+          <ChatBotBtn />
           <div css={timeBar(stop, width)}> </div>
           <h1 css={{ fontSize: '20px' }}>Question {selectedQuestion.id}</h1>
           <h1 css={{ padding: '20px' }}>{selectedQuestion.question}</h1>
           <Questions selectedQuestion={selectedQuestion} setStop={setStop} />
         </div>
-        {/* <div css={{ height: '500px' }}> */}
-        <MessagePage />
-        {/* </div> */}
       </div>
     </section>
   );

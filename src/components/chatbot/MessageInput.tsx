@@ -56,58 +56,48 @@ const MessageInput: React.FC<MessageInputProps> = ({ message, setMessage, onEnte
 
   return (
     <InputContainer isActive={isActiveInput()}>
-      <ContentWrapper>
-        <StyledTextarea
-          ref={textareaRef}
-          value={message}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onCompositionStart={handleCompositionStart}
-          onCompositionEnd={handleCompositionEnd}
-          placeholder={isFocused ? '' : 'Send message.'}
-          rows={1}
-        />
-      </ContentWrapper>
+      <StyledTextarea
+        ref={textareaRef}
+        value={message}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
+        placeholder={isFocused ? '' : 'DevQuiz AI에게 메세지 쓰기'}
+        rows={1}
+      />
     </InputContainer>
   );
 };
 
 const InputContainer = styled.div<{ isActive: boolean }>`
-  width: 80%;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  border-radius: 8px;
+  justify-content: center;
+
+  width: 280px;
+  height: 50px;
+  border-radius: 16px;
   border: 1px solid ${(props) => (props.isActive ? '#EE735B' : '#E0E2E4')};
   box-shadow: ${(props) => (props.isActive ? '0 0 0 1px #FDDDD9' : 'none')};
   background-color: ${(props) => (props.isActive ? '#FFFFFF' : '#FFFFFF')};
   color: ${(props) => (props.isActive ? '#6C6B72' : '#B2B2B2')};
 `;
 
-const ContentWrapper = styled.div`
-  min-height: 20px;
-  max-height: 40px;
-  overflow-y: auto;
-  padding: 10px;
-  margin: 4px 0 0 0;
-`;
-
 const StyledTextarea = styled.textarea`
-  width: 100%;
-  min-height: 20px;
-  max-height: 40px;
   border: none;
   background-color: transparent;
   color: inherit;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   resize: none;
   outline: none;
   overflow-y: hidden;
   white-space: pre-wrap;
-
+  overflow-y: auto;
+  padding: 10px;
   &::placeholder {
     color: inherit;
   }
