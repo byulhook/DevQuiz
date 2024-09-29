@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import User from './User';
 import Loading from '../Loading';
-import TypingAnimation from './Typing';
+import TypingAnimation from '../message/Typing';
+import User from '../message/User';
 
 interface Message {
   content: string;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { css } from '@emotion/react';
 import { v4 as uuidv4 } from 'uuid';
-import MessageArea from '../components/Message/MessageArea';
-import MessageFormSec from '../components/Message/MessageFormSec';
+import MessageArea from './message/MessageArea';
+import MessageFormSec from './message/MessageFormSec';
 import { getInterviewCompletion } from '../services/apiService';
 
 interface Message {

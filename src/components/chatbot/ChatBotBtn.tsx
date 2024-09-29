@@ -41,10 +41,10 @@ const buttonStyle = css`
   z-index: 9999;
   transition:
     transform 0.1s ease-in-out,
-    box-shadow 0.2s ease-in-out;
+    box-shadow 0.1s ease-in-out;
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   &:active {
     transform: scale(0.95);

@@ -55,7 +55,4 @@ const javascriptQuiz = [
   "이터러블과 이터레이터 프로토콜에 대해 설명해 주세요."
 ];
 
-// 모든 문제를 문자열로 변환
-const questions = javascriptQuiz.join('\n');
-
-export { questions };
+export { javascriptQuiz };

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import Loading from '../Loading';
-import TypingAnimation from '../Message/Typing';
+import TypingAnimation from '../message/Typing';
 
 interface Message {
   content: string;
