@@ -12,7 +12,7 @@
     "type-check": "tsc --noEmit",
     "deploy": "firebase init hosting:channel:deploy live --only hosting",
     "server": "node server/server.js",
-    "prepare": "husky"
+    "prepare": "husky && husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint . --fix"
@@ -28,6 +28,7 @@
     "firebase": "^10.13.2",
     "lucide-react": "^0.441.0",
     "openai": "^4.63.0",
+    "openai-memory": "^1.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
@@ -42,6 +43,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -59,7 +61,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
-    "husky": "^9.1.6",
+    "husky": "^8.0.0",
     "import-order": "^0.0.7",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",

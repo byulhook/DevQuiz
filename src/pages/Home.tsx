@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 
+import ChatBotBtn from '@/components/chatbot/ChatBotBtn';
 import FlipCard from '@/components/FlipCard';
 import { QuizCategory } from '@/types/quizCate';
 
@@ -7,11 +8,14 @@ const quizCategory: QuizCategory[] = ['html5', 'css3', 'javascript', 'react', 't
 
 function Home() {
   return (
-    <div css={grid}>
-      {quizCategory.map((item, i) => (
-        <FlipCard key={i} type={item} />
-      ))}
-    </div>
+    <>
+      <div css={grid}>
+        {quizCategory.map((item, i) => (
+          <FlipCard key={i} type={item} />
+        ))}
+      </div>
+      <ChatBotBtn />
+    </>
   );
 }
 

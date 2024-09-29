@@ -1,12 +1,9 @@
 import { useState } from 'react';
-
 import { css } from '@emotion/react';
-
-import MessageArea from '../components/Message/MessageArea';
-import { useChatHistory } from '../hooks/useChatHistory';
-import { getChatCompletion } from '../services/openai';
-import { ChatMessage } from '../types/chat';
-import MessageFormSec from './Message/MessageFormSec';
+import { v4 as uuidv4 } from 'uuid';
+import MessageArea from './message/MessageArea';
+import MessageFormSec from './message/MessageFormSec';
+import { getInterviewCompletion } from '../services/apiService';
 
 interface Message {
   content: string;
@@ -15,41 +12,23 @@ interface Message {
 
 const SubjectiveQuiz = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const { addUserMessage, addAssistantMessage, getChatHistoryWithNewMessage } = useChatHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationId] = useState<string>(uuidv4());
 
   const handleSendMessage = async (message: string) => {
     const userMessage: Message = { content: message, isUser: true };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
-    addUserMessage(message);
     setIsLoading(true);
 
     try {
-      const newChatHistory: ChatMessage[] = getChatHistoryWithNewMessage(message);
-      const response = await getChatCompletion(newChatHistory);
-
-      if (response !== null) {
-        const assistantMessage: Message = { content: '', isUser: false };
-        setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-        addAssistantMessage(response);
-        setIsLoading(false);
-
-        setTimeout(() => {
-          setMessages((prevMessages) =>
-            prevMessages.map((msg, index) =>
-              index === prevMessages.length - 1 ? { ...msg, content: response } : msg,
-            ),
-          );
-        }, 100);
-      } else {
-        const errorMessage: Message = { content: '응답을 받을 수 없습니다.', isUser: false };
-        setMessages((prevMessages) => [...prevMessages, errorMessage]);
-        setIsLoading(false);
-      }
+      const responseContent = await getInterviewCompletion(message, conversationId);
+      const assistantMessage: Message = { content: responseContent, isUser: false };
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {
-      console.log('오류 발생:', error);
-      const errorMessage: Message = { content: '죄송합니다. 오류가 발생했습니다.', isUser: false };
+      console.error('오류 발생:', error);
+      const errorMessage: Message = { content: '서버 응답을 받을 수 없습니다.', isUser: false };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    } finally {
       setIsLoading(false);
     }
   };

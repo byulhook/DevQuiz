@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import SubjectiveQuiz from '@/components/SubjectiveQuiz';
 import ContainerLayout from '@/layouts/ContainerLayout';
 import RootLayout from '@/layouts/RootLayout';
 import Home from '@/pages/Home';
+import Interview from '@/pages/Interview';
 import Login from '@/pages/Login';
 import Message from '@/pages/Message';
 import MultipleChoice from '@/pages/MultipleChoice';
@@ -42,10 +42,10 @@ const router = createBrowserRouter([
             element: <MultipleChoice />,
           },
           {
-            path: PATH.QUIZ_SHORT_ANSWER,
+            path: 'interview',
             element: (
               <div>
-                <SubjectiveQuiz />
+                <Interview />
               </div>
             ),
           },

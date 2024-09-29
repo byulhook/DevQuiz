@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import { v4 as uuidv4 } from 'uuid';
-import MessageArea from '../components/message/MessageArea';
-import MessageForm from '../components/message/MessageForm';
-import { getChatCompletion } from '../services/apiService';
+import MessageArea from './MessageArea';
+import MessageForm from './MessageForm';
+import MessageHeader from './MessageHeader';
+import { getChatCompletion } from '../../services/apiService';
 
 interface Message {
   content: string;
   isUser: boolean;
 }
 
-const Chatbot = () => {
+const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId] = useState<string>(uuidv4());
@@ -34,23 +35,55 @@ const Chatbot = () => {
   };
 
   return (
-    <div css={meetingContainer}>
-      <MessageArea messages={messages} isLoading={isLoading} />
-      <MessageForm onSendMessage={handleSendMessage} />
+    <div css={chatBotContainer}>
+      <MessageHeader />
+      <div css={messagesContainer}>
+        <MessageArea messages={messages} isLoading={isLoading} />
+        <MessageForm onSendMessage={handleSendMessage} />
+      </div>
     </div>
   );
 };
 
-export default Chatbot;
+export default ChatBot;
 
-const meetingContainer = css`
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const chatBotContainer = css`
+  position: fixed;
+  bottom: 100px;
+  align-items: center;
+  right: 30px;
+  width: 400px;
+  height: 600px;
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  border-radius: 26px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10000;
+  animation: ${fadeInUp} 0.3s ease-out;
+`;
+
+const messagesContainer = css`
+  width: 400px;
+  height: 540px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 50vh;
-  width: 100%;
-  border: 1px solid #e4e4e4;
-  border-radius: 26px;
-  margin: 10px;
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
 `;

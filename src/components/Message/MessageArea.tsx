@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import User from './User';
 import Loading from '../Loading';
-import TypingAnimation from './Typing';
+import TypingAnimation from '../message/Typing';
+import User from '../message/User';
 
 interface Message {
   content: string;
@@ -12,11 +12,14 @@ interface Message {
 }
 
 interface MessageAreaProps {
+  initialAIMessage?: string; // optional로 변경
   messages: Message[];
   isLoading: boolean;
 }
 
-const MessageArea: React.FC<MessageAreaProps> = ({ messages, isLoading }) => {
+const DEFAULT_AI_MESSAGE = '자바스크립트 ';
+
+const MessageArea: React.FC<MessageAreaProps> = ({ initialAIMessage, messages, isLoading }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(true);
 
@@ -52,9 +55,15 @@ const MessageArea: React.FC<MessageAreaProps> = ({ messages, isLoading }) => {
     };
   }, []);
 
+  // 초기 AI 메시지를 추가한 새로운 메시지 배열
+  const combinedMessages: Message[] = [
+    { content: initialAIMessage || DEFAULT_AI_MESSAGE, isUser: false },
+    ...messages,
+  ];
+
   return (
     <MessageContainer ref={scrollRef} onScroll={handleScroll}>
-      {messages.map((message, index) => {
+      {combinedMessages.map((message, index) => {
         const lines = message.content.split('\n');
         return (
           <MessageBubble key={index}>
