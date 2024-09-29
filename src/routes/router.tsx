@@ -8,7 +8,6 @@ import Message from '@/pages/Message';
 import MultipleChoice from '@/pages/MultipleChoice';
 import Quiz from '@/pages/Quiz';
 import PATH from '@/routes/path';
-import { ProtectedRoute } from '@/routes/ProtectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
 
 const router = createBrowserRouter([
@@ -26,7 +25,6 @@ const router = createBrowserRouter([
     element: <ContainerLayout />,
     children: [
       {
-        element: <ProtectedRoute />,
         children: [
           { path: PATH.HOME, element: <Home /> },
           {

@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 import githubLogo from '@/assets/github.png';
 import googleLogo from '@/assets/google.png';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/Logo.png';
 import Button from '@/components/Button';
 import { useGithubSignIn } from '@/hooks/useGithubSignIn';
 import { useGoogleSignIn } from '@/hooks/useGoogleSignIn';

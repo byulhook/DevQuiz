@@ -2,11 +2,18 @@ import { css } from '@emotion/react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Bell, LogOut } from 'lucide-react';
 
+import { useNavigate } from 'react-router-dom';
 import { signOut } from '@/api/firebaseAuth';
+import Button from '@/components/Button';
 import UserAvatar from '@/components/UserAvatar';
+import useUserAuthentication from '@/hooks/useUserAuthentication';
+import PATH from '@/routes/path';
 import theme from '@/styles/theme';
 
 function Header() {
+  const { isUserLogined } = useUserAuthentication();
+  const naviagate = useNavigate();
+
   return (
     <header css={header}>
       <ul>
@@ -14,22 +21,37 @@ function Header() {
           <Bell />
         </li>
         <li>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              <UserAvatar />
-            </DropdownMenu.Trigger>
+          {isUserLogined() ? (
+            <DropdownMenu.Root>
+              <DropdownMenu.Trigger>
+                <UserAvatar />
+              </DropdownMenu.Trigger>
 
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content css={userDropdown}>
-                <DropdownMenu.Item className="menu-item">Setting</DropdownMenu.Item>
-                <DropdownMenu.Separator className="separator" />
-                <DropdownMenu.Item className="menu-item logout">
-                  <LogOut size={13} />
-                  <button onClick={() => signOut()}>Logout</button>
-                </DropdownMenu.Item>
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content css={userDropdown}>
+                  <DropdownMenu.Item className="menu-item">Setting</DropdownMenu.Item>
+                  <DropdownMenu.Separator className="separator" />
+                  <DropdownMenu.Item className="menu-item logout">
+                    <LogOut size={13} />
+                    <button onClick={() => signOut()}>Logout</button>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
+          ) : (
+            <Button
+              backgroundColor="black"
+              fontColor="white"
+              text="login"
+              onClick={() => {
+                naviagate(PATH.LOGIN);
+              }}
+              customStyle={css`
+                min-width: 80px;
+                height: 40px;
+              `}
+            ></Button>
+          )}
         </li>
       </ul>
     </header>
