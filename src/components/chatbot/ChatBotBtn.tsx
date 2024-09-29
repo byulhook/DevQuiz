@@ -38,7 +38,7 @@ const buttonStyle = css`
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 9999;
+  z-index: 9;
   transition:
     transform 0.1s ease-in-out,
     box-shadow 0.1s ease-in-out;

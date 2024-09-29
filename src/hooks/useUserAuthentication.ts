@@ -24,9 +24,7 @@ const useUserAuthentication = () => {
     return () => unsubscribe();
   }, []);
 
-  const isUserLogined = () => {
-    return Boolean(currentUser);
-  };
+  const isUserLogined = () => !!currentUser;
 
   return { user: currentUser, loading, isUserLogined };
 };
