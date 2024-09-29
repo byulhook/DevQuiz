@@ -3,8 +3,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
 import Loading from '../Loading';
-import TypingAnimation from '../message/Typing';
-import User from '../message/User';
+import TypingAnimation from './Typing';
+import User from './User';
 
 interface Message {
   content: string;
