@@ -19,12 +19,12 @@ const MessageHeaderContainer = css`
   width: 100%;
   height: 60px;
 
-  margin-left: 50px;
+  margin-left: 60px;
   z-index: 1000;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 12px;
     margin-right: 10px;
   }
