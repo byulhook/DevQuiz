@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { onAuthStateChanged, User } from 'firebase/auth';
 
@@ -24,7 +24,9 @@ const useUserAuthentication = () => {
     return () => unsubscribe();
   }, []);
 
-  const isUserLogined = () => !!currentUser;
+  const isUserLogined = useCallback(() => {
+    return currentUser !== null;
+  }, [currentUser]);
 
   return { user: currentUser, loading, isUserLogined };
 };
