@@ -10,6 +10,7 @@ import Quiz from '@/pages/Quiz';
 import PATH from '@/routes/path';
 import { ProtectedRoute } from '@/routes/ProtectedRoute';
 import PublicRoute from '@/routes/PublicRoute';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
             ),
           },
         ],
+      },
+      // 404 Not Found route
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
