@@ -1,32 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ContainerLayout from '@/layouts/ContainerLayout';
-import RootLayout from '@/layouts/RootLayout';
 import Home from '@/pages/Home';
 import Interview from '@/pages/Interview';
-import Login from '@/pages/Login';
 import Message from '@/pages/Message';
 import MultipleChoice from '@/pages/MultipleChoice';
 import Quiz from '@/pages/Quiz';
 import PATH from '@/routes/path';
-import { ProtectedRoute } from '@/routes/ProtectedRoute';
-import PublicRoute from '@/routes/PublicRoute';
 
 const router = createBrowserRouter([
-  {
-    element: <RootLayout />,
-    children: [
-      {
-        path: PATH.LOGIN,
-        element: <PublicRoute />,
-        children: [{ index: true, element: <Login /> }],
-      },
-    ],
-  },
   {
     element: <ContainerLayout />,
     children: [
       {
-        element: <ProtectedRoute />,
         children: [
           { path: PATH.HOME, element: <Home /> },
           {
