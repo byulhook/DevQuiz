@@ -78,9 +78,12 @@ const StyledLink = styled(Link)`
   transition: background-color 0.3s ease;
   font-weight: bold;
 
-  &:hover {
-    background-color: ${theme.colors.primaryHover};
+  &:visited {
     color: white;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 
   @media (min-width: 400px) {
