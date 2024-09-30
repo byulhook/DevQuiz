@@ -72,7 +72,7 @@ const chatBotContainer = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 10000;
+  z-index: 10;
   animation: ${fadeInUp} 0.3s ease-out;
 `;
 

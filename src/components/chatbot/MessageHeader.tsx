@@ -20,7 +20,7 @@ const MessageHeaderContainer = css`
   height: 60px;
 
   margin-left: 60px;
-  z-index: 1000;
+  z-index: 10;
 
   img {
     width: 34px;

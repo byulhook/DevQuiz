@@ -1,12 +1,17 @@
+import { useCallback } from 'react';
 import { css } from '@emotion/react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Bell, LogOut } from 'lucide-react';
 
 import { signOut } from '@/api/firebaseAuth';
+import LoginModal from '@/components/LoginModal';
 import UserAvatar from '@/components/UserAvatar';
+import useUserAuthentication from '@/hooks/useUserAuthentication';
 import theme from '@/styles/theme';
 
 function Header() {
+  const { isUserLogined } = useUserAuthentication();
+
   return (
     <header css={header}>
       <ul>
@@ -14,27 +19,38 @@ function Header() {
           <Bell />
         </li>
         <li>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              <UserAvatar />
-            </DropdownMenu.Trigger>
+          <div css={menuButtonWrapper}>
+            {isUserLogined() ? (
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger>
+                  <UserAvatar />
+                </DropdownMenu.Trigger>
 
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content css={userDropdown}>
-                <DropdownMenu.Item className="menu-item">Setting</DropdownMenu.Item>
-                <DropdownMenu.Separator className="separator" />
-                <DropdownMenu.Item className="menu-item logout">
-                  <LogOut size={13} />
-                  <button onClick={() => signOut()}>Logout</button>
-                </DropdownMenu.Item>
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+                <DropdownMenu.Portal>
+                  <DropdownMenu.Content css={userDropdown}>
+                    <DropdownMenu.Item className="menu-item">Setting</DropdownMenu.Item>
+                    <DropdownMenu.Separator className="separator" />
+                    <DropdownMenu.Item className="menu-item logout" onClick={() => signOut()}>
+                      <LogOut size={13} />
+                      Logout
+                    </DropdownMenu.Item>
+                  </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+              </DropdownMenu.Root>
+            ) : (
+              <LoginModal />
+            )}
+          </div>
         </li>
       </ul>
     </header>
   );
 }
+
+const menuButtonWrapper = css`
+  display: flex;
+  align-items: center;
+`;
 
 const header = css`
   width: calc(100% - 240px);

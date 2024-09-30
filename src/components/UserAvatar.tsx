@@ -1,16 +1,20 @@
 import { css } from '@emotion/react';
 import { ChevronDown } from 'lucide-react';
 
+import useUserAuthentication from '@/hooks/useUserAuthentication';
 import theme from '@/styles/theme';
 
+import defaultProfile from '/src/assets/user-default.png';
+
 function UserAvatar() {
+  const { user } = useUserAuthentication();
   return (
     <div css={userAvatar}>
       <div className="user-thumb">
-        <img src="/src/assets/user-default.png" alt="" />
+        <img src={user?.photoURL || defaultProfile} alt="" />
       </div>
       <div className="user-id">
-        <p>haruyam15</p>
+        <p>{user?.displayName}</p>
         <span>
           <ChevronDown size="20" />
         </span>
