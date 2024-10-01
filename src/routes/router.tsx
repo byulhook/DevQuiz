@@ -6,6 +6,7 @@ import Message from '@/pages/Message';
 import MultipleChoice from '@/pages/MultipleChoice';
 import Quiz from '@/pages/Quiz';
 import PATH from '@/routes/path';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
             ),
           },
         ],
+      },
+      // 404 Not Found route
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
